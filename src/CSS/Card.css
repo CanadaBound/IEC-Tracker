@@ -1,0 +1,32 @@
+.Card-Border{
+	height: 500px;
+	width: 400px;
+	border-radius: 25px;
+	border: 8px dashed var(--search-bar-border);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.Card-Border:hover{
+	border: 8px dashed white;
+}
+
+.Card-Border:hover .Card-Text{
+	color:white;
+}
+
+.Card-Border:hover svg{
+	filter: brightness(0) saturate(100%) invert(97%) sepia(78%) saturate(219%) hue-rotate(172deg) brightness(116%) contrast(100%);
+}
+
+.Card-Text{
+	font-size: 1.5rem;
+	color: var(--text-color-secondary);
+	margin: 20px 0 20px 0;
+	font-family: 'RockoFLF';
+
+}
