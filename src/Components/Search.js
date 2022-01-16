@@ -2,11 +2,10 @@ import '../CSS/Search.css';
 import Countries from '../Assets/Data/Countries';
 import { useEffect, useRef, useState } from 'react';
 
-function Search(){
+function Search({setSelectedCountry}){
 	const [searchValue, setSearchValue] = useState('');
 	const [countryArr, setCountryArr] = useState([]);
 	const [showSearch, setShowSearch] = useState(false);
-	const [mouseOnDropdown, setMouseOnDropdown]= useState(false);
 	const inputRef = useRef();
 	
 	function handleChange(e){
@@ -21,7 +20,7 @@ function Search(){
 		inputRef.current.focus();
 		setSearchValue(e.currentTarget.textContent);
 		setShowSearch(false);
-		
+		setSelectedCountry(e.currentTarget.textContent);
 	}
 
 	
