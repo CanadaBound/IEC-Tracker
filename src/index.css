@@ -73,4 +73,8 @@ p, h1, h2, h3, h4, h5, h6 {
   --search-bar-border: #AAAAAA;
   --text-color-secondary: #AAAAAA;
   --text-color-tertiary: #000;
+  --country-card-red-background: #FDAAAA;
+  --country-card-red-other: #EE6969;
+  --positive-chance-border: #68C4AF;
+  --positive-chance-background: #96EAD7;
 }

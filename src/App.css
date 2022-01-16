@@ -16,7 +16,7 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center safe;
   align-items: center;
   overflow-y: auto;
   overflow-x: hidden ;
