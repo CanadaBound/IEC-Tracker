@@ -1,0 +1,24 @@
+
+@font-face {
+  font-family: RockoUltraFLF;
+  src:url("Assets/Font/RockoUltraFLF.ttf");
+}
+
+@font-face {
+  font-family: RockoFLF;
+  src:url("Assets/Font/RockoFLF.ttf");
+}
+
+.App {
+  text-align: center;
+  background-color: #081B33;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center safe;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden ;
+}
+

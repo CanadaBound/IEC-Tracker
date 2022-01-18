@@ -1,0 +1,372 @@
+.ROI-Form{
+	height: 500px;
+	width: 700px;
+	border-radius: 25px;
+	border: 8px solid var(--search-bar-border);
+	background-color: var(--search-bar);
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 50px 0 0 0;
+}
+.New-ROI-Form{
+	position: relative;
+}
+.New-ROI-Title{
+	width: 100%;
+	height: 100px;
+	font-family: 'RockoFLF';
+	font-size: 3rem;
+}
+
+.New-ROI-Form input{
+	width: 90%;
+	height: 75px;
+	border-radius: 25px;
+	border: none;
+	background-color: var(--search-bar);
+	border: 8px solid var(--search-bar-border);
+	font-size: 1.5rem;
+	font-family: 'RockoFLF';
+}
+
+.ROI-Submit-Button{
+	width: 200px ; 
+	height: 50px ;
+	font-family: 'RockoFLF';
+	background-color: var(--search-bar);
+	border: 8px solid var(--search-bar-border);
+	cursor: pointer;
+}
+
+.New-ROI-Button{
+	width: 150px;
+	height: 50px;
+	border: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	position: absolute;
+	top:20px;
+	left: -58px;
+	cursor: pointer;
+	background-color: #018a23;
+	z-index: -1;
+	animation: buttonEffectReverse 0.5s ease-in;
+}
+.New-ROI-Button:hover{
+	animation: buttonEffect 0.5s ease-in;
+	left:-158px;
+	
+
+
+}
+
+
+.New-ROI-Button svg{
+	margin: 0 15px 0 10px;
+}
+
+.New-ROI-Button::after{
+	content: 'New Season';
+	font-size: 1rem;
+	font-family: 'RockoFLF';
+	font-weight: 600;
+	
+
+} 
+
+.New-ROI-Button-Active{
+	width: 150px;
+	height: 50px;
+	border: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	position: absolute;
+	top:20px;
+	left: -158px;
+	cursor: pointer;
+	background-color: #018a23;
+}
+
+
+.New-ROI-Button-Active svg{
+	margin: 0 10px 0 10px;
+}
+
+.New-ROI-Button-Active::after{
+	content: 'New ROI';
+	font-size: 1rem;
+	font-family: 'RockoFLF';
+	font-weight: 600;
+	
+
+} 
+
+.Edit-ROI-Button{
+	width: 150px;
+	height: 50px;
+	border: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content:flex-start;
+	position: absolute;
+	top:80px;
+	left: -58px;
+	cursor: pointer;
+	background-color: #ffa703;
+	z-index: -1;
+	animation: buttonEffectReverse 0.5s ease-in;
+}
+
+.Edit-ROI-Button svg{
+	margin: 0 15px 0 10px;
+}
+
+.Edit-ROI-Button:hover{
+	animation: buttonEffect 0.5s ease-in;
+	left:-158px;
+	
+
+
+}
+
+.Edit-ROI-Button::after{
+	content: 'Edit ROI';
+	font-size: 1rem;
+	font-family: 'RockoFLF';
+	font-weight: 600;
+	
+
+} 
+
+.Edit-ROI-Button-Active{
+	width: 150px;
+	height: 50px;
+	border: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content:flex-start;
+	position: absolute;
+	top:80px;
+	left: -158px;
+	cursor: pointer;
+	background-color: #ffa703;
+	z-index: -1;
+	/* animation: buttonEffectReverse 0.5s ease-in; */
+}
+
+.Edit-ROI-Button-Active svg{
+	margin: 0 15px 0 10px;
+}
+
+
+
+.Edit-ROI-Button-Active::after{
+	content: 'Edit ROI';
+	font-size: 1rem;
+	font-family: 'RockoFLF';
+	font-weight: 600;
+	
+
+} 
+.Delete-ROI-Button{
+	width: 150px;
+	height: 50px;
+	border: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content:flex-start;
+	position: absolute;
+	top:140px;
+	left: -58px;
+	cursor: pointer;
+	background-color: #ff0000;
+	z-index: -1;
+	animation: buttonEffectReverse 0.5s ease-in;
+}
+
+.Delete-ROI-Button svg{
+	margin: 0 15px 0 10px;
+}
+
+.Delete-ROI-Button:hover{
+	animation: buttonEffect 0.5s ease-in;
+	left:-158px;
+	
+
+
+}
+
+.Delete-ROI-Button::after{
+	content: 'Delete ROI';
+	font-size: 1rem;
+	font-family: 'RockoFLF';
+	font-weight: 600;
+	
+
+} 
+
+.Delete-ROI-Button-Active{
+	width: 150px;
+	height: 50px;
+	border: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content:flex-start;
+	position: absolute;
+	top:140px;
+	left: -158px;
+	cursor: pointer;
+	background-color: #ff0000;
+	z-index: -1;
+	/* animation: buttonEffectReverse 0.5s ease-in; */
+}
+
+.Delete-ROI-Button-Active svg{
+	margin: 0 15px 0 10px;
+}
+
+
+.Delete-ROI-Button-Active::after{
+	content: 'Delete ROI';
+	font-size: 1rem;
+	font-family: 'RockoFLF';
+	font-weight: 600;
+	
+
+} 
+
+.ROI-Container{
+	height: 400px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.New-ROI-Form{
+	height: 400px;
+	width: 45%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.Country-Selector{
+	height: 400px;
+	width: 45%;
+	overflow: auto;
+}
+
+.Country-Selector-Search{
+	width: 100%;
+	height: 60px;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	position: sticky;
+	top:0;
+}
+
+.Selector-Button{
+	width: 100%;
+	height: 60px;
+	cursor: pointer;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	background-color: transparent;
+	border: none;
+	text-align: left;
+}
+
+.Selector-Button-Active{
+	width: 100%;
+	height: 60px;
+	cursor: pointer;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	background-color: var(--search-bar-border);
+	border: none;
+	text-align: left;
+
+}
+
+.Selector-Button:hover{
+	background-color: var(--search-bar-border);
+}
+
+.Season-Button{
+	position: absolute;
+	height: 75px;
+	width: 150px;
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
+	background-color: var(--search-bar);
+	border: 8px solid var(--search-bar-border);
+	cursor: pointer;
+	top:-75px;
+	left:5px;
+
+}
+
+.Season-Button:hover{
+	background-color: var(--search-bar-border);
+}
+
+.ROI-Button-Active{
+	position: absolute;
+	height: 75px;
+	width: 150px;
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
+	background-color: var(--search-bar);
+	border: 8px solid var(--search-bar-border);
+	border-bottom: 8px solid var(--search-bar);
+	top:-75px;
+	left:160px;
+
+}
+
+
+@keyframes buttonEffect{
+	0%{
+		left: -58px;
+	}
+	100%{
+		left:-158px;
+	}
+}
+
+@keyframes buttonEffectReverse{
+	0%{
+		left:-158px;
+	}
+	100%{
+		left: -58px;
+	}
+}
+
+

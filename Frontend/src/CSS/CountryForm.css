@@ -1,0 +1,430 @@
+.Country-Form{
+	height: 500px;
+	width: 700px;
+	border-radius: 25px;
+	border: 8px solid var(--search-bar-border);
+	background-color: var(--search-bar);
+	position: relative;
+	margin: 50px 0 0 0;
+}
+
+.New-Season-Form{
+	height: 400px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.New-Season-Title{
+	width: 100%;
+	height: 100px;
+	font-family: 'RockoFLF';
+	font-size: 3rem;
+}
+
+.New-Season-Form input{
+	width: 90%;
+	height: 75px;
+	border-radius: 25px;
+	border: none;
+	background-color: var(--search-bar-border);
+	font-size: 1.5rem;
+	font-family: 'RockoFLF';
+}
+
+.New-Season-Form div{
+	height: 25%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.Submit-Button{
+	width: 200px !important; 
+	height: 50px !important;
+	font-family: 'RockoFLF';
+	cursor: pointer;
+}
+.New-Season-Button{
+	width: 150px;
+	height: 50px;
+	border: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	position: absolute;
+	top:20px;
+	left: -58px;
+	cursor: pointer;
+	background-color: #018a23;
+	z-index: -1;
+	animation: buttonEffectReverse 0.5s ease-in;
+}
+.New-Season-Button:hover{
+	animation: buttonEffect 0.5s ease-in;
+	left:-158px;
+	
+
+
+}
+
+
+.New-Season-Button svg{
+	margin: 0 15px 0 10px;
+}
+
+.New-Season-Button::after{
+	content: 'New Season';
+	font-size: 1rem;
+	font-family: 'RockoFLF';
+	font-weight: 600;
+	
+
+} 
+
+.New-Season-Button-Active{
+	width: 150px;
+	height: 50px;
+	border: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+	position: absolute;
+	top:20px;
+	left: -158px;
+	cursor: pointer;
+	background-color: #018a23;
+}
+
+
+.New-Season-Button-Active svg{
+	margin: 0 10px 0 10px;
+}
+
+.New-Season-Button-Active::after{
+	content: 'New Season';
+	font-size: 1rem;
+	font-family: 'RockoFLF';
+	font-weight: 600;
+	
+
+} 
+
+.Edit-Season-Button{
+	width: 150px;
+	height: 50px;
+	border: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content:flex-start;
+	position: absolute;
+	top:80px;
+	left: -58px;
+	cursor: pointer;
+	background-color: #ffa703;
+	z-index: -1;
+	animation: buttonEffectReverse 0.5s ease-in;
+}
+
+.Edit-Season-Button svg{
+	margin: 0 15px 0 10px;
+}
+
+.Edit-Season-Button:hover{
+	animation: buttonEffect 0.5s ease-in;
+	left:-158px;
+	
+
+
+}
+
+.Edit-Season-Button::after{
+	content: 'Edit Season';
+	font-size: 1rem;
+	font-family: 'RockoFLF';
+	font-weight: 600;
+	
+
+} 
+
+.Edit-Season-Button-Active{
+	width: 150px;
+	height: 50px;
+	border: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content:flex-start;
+	position: absolute;
+	top:80px;
+	left: -158px;
+	cursor: pointer;
+	background-color: #ffa703;
+	z-index: -1;
+	/* animation: buttonEffectReverse 0.5s ease-in; */
+}
+
+.Edit-Season-Button-Active svg{
+	margin: 0 15px 0 10px;
+}
+
+
+
+.Edit-Season-Button-Active::after{
+	content: 'Edit Season';
+	font-size: 1rem;
+	font-family: 'RockoFLF';
+	font-weight: 600;
+	
+
+} 
+.Delete-Season-Button{
+	width: 150px;
+	height: 50px;
+	border: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content:flex-start;
+	position: absolute;
+	top:140px;
+	left: -58px;
+	cursor: pointer;
+	background-color: #ff0000;
+	z-index: -1;
+	animation: buttonEffectReverse 0.5s ease-in;
+}
+
+.Delete-Season-Button svg{
+	margin: 0 15px 0 10px;
+}
+
+.Delete-Season-Button:hover{
+	animation: buttonEffect 0.5s ease-in;
+	left:-158px;
+	
+
+
+}
+
+.Delete-Season-Button::after{
+	content: 'Delete Season';
+	font-size: 1rem;
+	font-family: 'RockoFLF';
+	font-weight: 600;
+	
+
+} 
+
+.Delete-Season-Button-Active{
+	width: 150px;
+	height: 50px;
+	border: none;
+	border-top-left-radius: 25px;
+	border-bottom-left-radius: 25px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content:flex-start;
+	position: absolute;
+	top:140px;
+	left: -158px;
+	cursor: pointer;
+	background-color: #ff0000;
+	z-index: -1;
+	/* animation: buttonEffectReverse 0.5s ease-in; */
+}
+
+.Delete-Season-Button-Active svg{
+	margin: 0 15px 0 10px;
+}
+
+
+.Delete-Season-Button-Active::after{
+	content: 'Delete Season';
+	font-size: 1rem;
+	font-family: 'RockoFLF';
+	font-weight: 600;
+	
+
+} 
+
+.Season-Button-Active{
+	position: absolute;
+	height: 75px;
+	width: 150px;
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
+	background-color: var(--search-bar);
+	border: 8px solid var(--search-bar-border);
+	border-bottom: 8px solid var(--search-bar);
+	top:-75px;
+	left:5px;
+	font-size: 1.75rem;
+	font-family: 'RockoFLF';
+
+}
+
+.ROI-Button{
+	position: absolute;
+	height: 75px;
+	width: 150px;
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
+	background-color: var(--search-bar);
+	border: 8px solid var(--search-bar-border);
+	top:-75px;
+	left:160px;
+	cursor: pointer;
+	font-size: 1.75rem;
+	font-family: 'RockoFLF';
+
+}
+
+.ROI-Button:hover{
+	background-color: var(--search-bar-border);
+}
+
+.Edit-Season-Container{
+	height: 360px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.Edit-Season-Form{
+	height: 100%;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.Edit-Season-Form input{
+	width: 90%;
+	height: 75px;
+	border-radius: 25px;
+	border: none;
+	background-color: var(--search-bar-border);
+	font-size: 1.5rem;
+	font-family: 'RockoFLF';
+}
+
+.Edit-Season-Form label{
+	width: 90%;
+	height: 40px;
+	font-size: 2rem;
+	font-family: 'RockoFLF';
+}
+
+
+.Delete-Season-Container{
+	height: 360px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.Country-Selector-Delete{
+	height: 400px;
+	width: 90%;
+	overflow: auto;
+}
+
+.Selector-Container{
+	width: 100%;
+	height: 60px;
+	cursor: pointer;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	background-color: transparent;
+	border: none;
+	text-align: left;
+	position: relative;
+	cursor: auto;
+}
+
+.Selector-Container:hover{
+	background-color: var(--search-bar-border);
+}
+
+.Selector-Container:hover .Delete-Button{
+	animation: deleteButton 0.5s ease-in;
+	transform: translateX(0%);
+
+}
+
+.Delete-Button{
+	position: absolute;
+	height: 100%;
+	width: 15%;
+	right: 0;
+	top: 0;
+	border:none;
+	background-color: #ff0000;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	transform: translateX(101%);
+	cursor: pointer;
+
+}
+
+.Country-Selector-Delete input{
+	z-index: 2;
+}
+
+
+
+@keyframes buttonEffect{
+	0%{
+		left: -58px;
+	}
+	100%{
+		left:-158px;
+	}
+}
+
+@keyframes buttonEffectReverse{
+	0%{
+		left:-158px;
+	}
+	100%{
+		left: -58px;
+	}
+}
+
+@keyframes deleteButton{
+	0%{
+		transform: translateX(101%);
+	}
+	100%{
+		transform: translateX(0%);
+	}
+}
+
+
