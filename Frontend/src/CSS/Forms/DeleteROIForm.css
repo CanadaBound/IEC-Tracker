@@ -1,0 +1,121 @@
+
+.Delete-ROI-Wrapper{
+	height: 400px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.Delete-ROI-Title{
+	width: 100%;
+	height: 100px;
+	font-family: 'RockoFLF';
+	font-size: 3rem;
+}
+
+.Delete-ROI-Country-Selector{
+	height: 400px;
+	width: 95%;
+	overflow: auto;
+}
+
+.Delete-ROI-Country-Selector-Search{
+	width: 100%;
+	height: 60px;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	position: sticky;
+	top:0;
+}
+
+.Delete-ROI-Selector-Button{
+	width: 100%;
+	height: 60px;
+	cursor: pointer;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	background-color: transparent;
+	border: none;
+	text-align: left;
+}
+
+.Delete-ROI-Selector-Button-Active{
+	width: 100%;
+	height: 60px;
+	cursor: pointer;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	background-color: var(--search-bar-border);
+	border: none;
+	text-align: left;
+
+}
+
+.Delete-ROI-Selector-Button:hover{
+	background-color: var(--search-bar-border);
+}
+
+.Back-Button{
+	position: absolute;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	height: 50px;
+	width: 50px;
+	top: 45%;
+	left: 1%;
+	opacity: 50%;
+}
+
+.Back-Button:hover{
+	opacity: 1;
+}
+
+.Delete-Selector-Container{
+	width: 100%;
+	height: 60px;
+	cursor: pointer;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	background-color: transparent;
+	border: none;
+	text-align: left;
+	position: relative;
+	cursor: auto;
+}
+
+.Delete-Selector-Container:hover{
+	background-color: var(--search-bar-border);
+}
+
+.Delete-Selector-Container:hover .Delete-Roi-Button{
+	animation: deleteButton 0.5s ease-in;
+	transform: translateX(0%);
+}
+
+.Delete-Roi-Button{
+	position: absolute;
+	height: 100%;
+	width: 15%;
+	right: 0;
+	top: 0;
+	border:none;
+	background-color: #ff0000;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	transform: translateX(101%);
+	cursor: pointer;
+}
+
+@keyframes deleteButton{
+	0%{
+		transform: translateX(101%);
+	}
+	100%{
+		transform: translateX(0%);
+	}
+}

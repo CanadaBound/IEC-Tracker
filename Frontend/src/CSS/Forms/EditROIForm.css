@@ -1,0 +1,111 @@
+
+.Edit-ROI-Wrapper{
+	height: 400px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.No-Records-Message{
+	position: absolute;
+	font-size: 1.5rem;
+	font-family: 'RockoFLF';
+	color: #ff0000;
+	opacity: 50%;
+	top: 35%;
+}
+.Edit-ROI-Title{
+	width: 100%;
+	height: 100px;
+	font-family: 'RockoFLF';
+	font-size: 3rem;
+}
+
+.Edit-ROI-Form input{
+	width: 90%;
+	height: 75px;
+	border-radius: 25px;
+	border: none;
+	background-color: var(--search-bar);
+	border: 8px solid var(--search-bar-border);
+	font-size: 1.5rem;
+	font-family: 'RockoFLF';
+}
+
+.Edit-Submit-Button{
+	width: 200px ; 
+	height: 50px ;
+	font-family: 'RockoFLF';
+	background-color: var(--search-bar);
+	border: 8px solid var(--search-bar-border);
+	cursor: pointer;
+}
+
+.Edit-ROI-Country-Selector{
+	height: 400px;
+	width: 45%;
+	overflow: auto;
+	margin: 0 0 0 7.5%;
+}
+
+.Edit-ROI-Country-Selector-Search{
+	width: 100%;
+	height: 60px;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	position: sticky;
+	top:0;
+}
+
+.Edit-ROI-Selector-Button{
+	width: 100%;
+	height: 60px;
+	cursor: pointer;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	background-color: transparent;
+	border: none;
+	text-align: left;
+}
+
+.Edit-ROI-Selector-Button-Active{
+	width: 100%;
+	height: 60px;
+	cursor: pointer;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	background-color: var(--search-bar-border);
+	border: none;
+	text-align: left;
+
+}
+
+.Edit-ROI-Selector-Button:hover{
+	background-color: var(--search-bar-border);
+}
+
+.Back-Button{
+	position: absolute;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	height: 50px;
+	width: 50px;
+	top: 45%;
+	left: 1%;
+	opacity: 50%;
+}
+
+.Back-Button:hover{
+	opacity: 1;
+}
+
+.Edit-ROI-Form{
+	height: 100%;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}

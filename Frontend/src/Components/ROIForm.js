@@ -2,6 +2,9 @@ import '../CSS/ROIForm.css';
 import { useEffect, useState, useRef } from 'react';
 import { getData, getSingleCountry, getAllCountryROI } from '../HelperFunctions';
 import axios from 'axios';
+import NewROIForm from './Forms/NewROIForm';
+import EditROIForm from './Forms/EditROIForm';
+import DeleteROIForm from './Forms/DeleteROIForm';
 
 function ROIForm({setShowCountryForm}){
 	const [showForm, setShowForm] = useState(false);
@@ -214,41 +217,15 @@ function ROIForm({setShowCountryForm}){
 				<path d="M19 24h-14c-1.104 0-2-.896-2-2v-16h18v16c0 1.104-.896 2-2 2m-9-14c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6 0c0-.552-.448-1-1-1s-1 .448-1 1v9c0 .552.448 1 1 1s1-.448 1-1v-9zm6-5h-20v-2h6v-1.5c0-.827.673-1.5 1.5-1.5h5c.825 0 1.5.671 1.5 1.5v1.5h6v2zm-12-2h4v-1h-4v1z"/>
 			</svg>
 		</button>}
-		{showNewROI?<h1 className='New-ROI-Title'>New ROI</h1>:null}
-		{showEditROI?<h1 className='New-ROI-Title'>Edit ROI</h1>:null}
-		{showDeleteROI?<h1 className='New-ROI-Title'>Delete ROI</h1>:null}
+	
 
-		<section className='ROI-Container'>
-			<div className='Country-Selector' ref={containerRef}>
-				<input type="search" placeholder="Search.." value={searchValue} onChange={(e)=>setSearchValue(e.target.value)} className='Country-Selector-Search'/>
-    			{countryArr.map(country=> <button key ={country.country_name} className='Selector-Button' id={country._id} onClick={(e)=>toggleROIList(e, country.country_name)}>{country.country_name}</button>)}
+		
+			{showNewROI?<NewROIForm/>:null}
 
-			</div>
-			{showNewROI?<form className='New-ROI-Form'>
-				{showForm?<>
-				<input type="text" placeholder='Candidates' value={candidates} onChange={(e)=>setCandidates(e.currentTarget.value)}/>
-				<input type="text" placeholder='Permits Left' value={permits} onChange={(e)=>setPermits(e.currentTarget.value)}/>
-				<input type="text" placeholder='Invitations' value={invitations} onChange={(e)=>setInvitations(e.currentTarget.value)}/>
-				<input type="date" placeholder='Date' value={date} onChange={(e)=>setDate(e.currentTarget.value)}/>
-				<input type="submit" className='ROI-Submit-Button' onClick={(e)=>onSubmit(e)}/>
-				</>:null}
-			</form>:null}
+			{showEditROI?<EditROIForm/>:null}
 
-			{showEditROI?<form className='New-ROI-Form'>
-			{showROIList?<>
-				{selectedCountryROI.map(roi=> <button key ={roi._id} className='Selector-Button' id={roi._id} onClick={(e)=>toggleROIList(e, roi.country_name)}>{roi.country_date}</button>)}
-				{/* <input type="text" placeholder='Candidates' value={candidates} onChange={(e)=>setCandidates(e.currentTarget.value)}/>
-				<input type="text" placeholder='Permits Left' value={permits} onChange={(e)=>setPermits(e.currentTarget.value)}/>
-				<input type="text" placeholder='Invitations' value={invitations} onChange={(e)=>setInvitations(e.currentTarget.value)}/>
-				<input type="date" placeholder='Date' value={date} onChange={(e)=>setDate(e.currentTarget.value)}/>
-				<input type="submit" className='ROI-Submit-Button' onClick={(e)=>onUpdate(e)}/> */}
-				</>:null}
-			</form>:null}
-
-			{showDeleteROI?<form className='New-ROI-Form'>
-				
-			</form>:null}
-		</section>
+			{showDeleteROI?<DeleteROIForm/>:null}
+	
 		
 		
 	</section>

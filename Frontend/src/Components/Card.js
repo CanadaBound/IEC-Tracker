@@ -1,18 +1,56 @@
 import { useEffect, useState } from 'react';
 import '../CSS/Card.css';
+
+import {getSingleCountryByName, getAllCountryROI} from '../HelperFunctions';
+
 function Card({selectedCountry}){
 
 	const [showCountryCard, setShowCountryCard] = useState(false);
+	const [selectedCountryData, setSelectedCountryData]= useState({});
+	const [selectedCountryROIData, setSelectedCountryROIData]= useState([]);
+	const [slicedROIArr, setslicedROIArr] = useState([]);
 	const [favourite, setFavourite] = useState(false);
 	const [bin, setBin] = useState(false);
 
+	const [onePersonPct, setOnePersonPct] = useState('');
+	const [twoPeoplePct, setTwoPeoplePct] = useState('');
 	useEffect(()=>{
+		console.log(showCountryCard);
 		if(selectedCountry.length === 0){
 			setShowCountryCard(false);
 		}else{
-			setShowCountryCard(true);
+			
+			
+			getSingleCountryByName(selectedCountry).then(res=> setSelectedCountryData(res.data[0]));
+			getAllCountryROI(selectedCountry).then(res=>{
+
+				setSelectedCountryROIData(res.data.sort((a,b)=>new Date(b.country_date)-new Date(a.country_date)));
+			});
 		}
 	},[selectedCountry])
+
+	useEffect(()=>{
+		console.log(selectedCountryROIData);
+		if(selectedCountryROIData !== null && typeof selectedCountryROIData !== 'undefined' && selectedCountryROIData.length > 0){
+			setShowCountryCard(true);
+			var copyArr = [...selectedCountryROIData];
+				console.log(copyArr);
+				copyArr = copyArr.slice(0,2);
+				setslicedROIArr(copyArr);
+			
+		
+
+		if(selectedCountryROIData[0].country_permits/selectedCountryROIData[0].country_candidates>1){
+			setOnePersonPct('100%');
+			setTwoPeoplePct('100%');
+		}else{
+			var person1 = selectedCountryROIData[0].country_permits/selectedCountryROIData[0].country_candidates;
+			var person2 = selectedCountryROIData[0].country_permits/selectedCountryROIData[0].country_candidates;
+			setOnePersonPct(Math.round((person1)*100)+'%');
+			setTwoPeoplePct(Math.round((person1*person2)*100)+'%');
+		}
+	}
+	},[selectedCountryROIData]);
 
 	return(
 		<>
@@ -41,39 +79,33 @@ function Card({selectedCountry}){
 				</svg>
 				}
 			</button>
+			
 			<article className='Card-Container'>
 				<section className='Country-Name'>
-					<p>United Kingdom</p>
+					<p>{selectedCountryData.country_name}</p>
 				</section>
 				<section className='Country-Quota'>
 					<p>Quota:</p>
-					<p>5000</p>
+					<p>{selectedCountryData.country_quota}</p> 
 				</section>
 				<section className='Country-Candidates'>
 					<p>Candidates:</p>
-					<p>6000</p>
+					<p>{selectedCountryROIData[0].country_candidates}</p>
 				</section>
 				<section className='Country-Permits'>
 					<p>Permits Left:</p>
-					<p>5000</p>
+					<p>{selectedCountryROIData[0].country_permits-selectedCountryROIData[0].country_invitations}</p>
 				</section>
 				<section className='Historical-Draws'>
 					<p className='Historical-Title'>Historical Draws (Previous 3 weeks)</p>
 					<div className='Historical-Data-Container'>
-						<div className='Weeks'>
-							<p>Week 1</p>
-							<p>Week 2</p>
-							<p>Week 3</p>
-						</div>
 						<div className='Dates'>
-							<p>17/1</p>
-							<p>24/1</p>
-							<p>31/1</p>
+							{selectedCountryROIData.length <= 3? selectedCountryROIData.map(roi=><p key={roi._id}>{roi.country_date}</p>):slicedROIArr.map(roi=><p key={roi._id}>{roi.country_date}</p>)}
 						</div>
 						<div className='Permits'>
-							<p>250 permits</p>
-							<p>250 permits</p>
-							<p>250 permits</p>
+							{selectedCountryROIData.length>0?<p>{selectedCountryROIData[0].country_invitations}</p>:null}
+							{selectedCountryROIData.length>1?<p>{selectedCountryROIData[1].country_invitations-selectedCountryROIData[0].country_invitations}</p>:null}
+							{selectedCountryROIData.length>2?<p>{selectedCountryROIData[2].country_invitations-selectedCountryROIData[1].country_invitations}</p>:null}
 						</div>
 					</div>
 				</section>
@@ -84,11 +116,11 @@ function Card({selectedCountry}){
 				<div className='Chances-Layout'>
 					<div className='One-Person'>
 						<p>1 Person:</p>
-						<p>83%</p>
+						<p>{onePersonPct}</p>
 					</div>
 					<div className='Two-People'>
 						<p>2 People:</p>
-						<p>69%</p>
+						<p>{twoPeoplePct}</p>
 					</div>
 				</div>
 			</aside>
