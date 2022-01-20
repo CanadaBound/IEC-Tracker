@@ -22,6 +22,15 @@ export async function getSingleCountry(id){
 
 }
 
+export async function getSingleCountryByName(name){
+	try{
+		return await axios.get(`countries/filteredCountries/${name}`);
+	}
+	catch(err){
+		console.log(err);
+	}
+}
+
 //Get all ROIs for one country from database
 export async function getAllCountryROI(name){
 	try{

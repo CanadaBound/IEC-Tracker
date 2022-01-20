@@ -20,7 +20,7 @@ function Search({setSelectedCountry}){
 
 	function handleSearchClick(e){
 		inputRef.current.focus();
-		setSearchValue(e.currentTarget.textContent);
+		setSearchValue('');
 		setShowSearch(false);
 		setSelectedCountry(e.currentTarget.textContent);
 	}

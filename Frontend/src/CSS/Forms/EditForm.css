@@ -1,0 +1,84 @@
+
+.Edit-Season-Title{
+	width: 100%;
+	height: 100px;
+	font-family: 'RockoFLF';
+	font-size: 3rem;
+}
+.Edit-Season-Container{
+	height: 360px;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.Edit-Season-Form{
+	height: 100%;
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.Edit-Season-Form input{
+	width: 90%;
+	height: 75px;
+	border-radius: 25px;
+	border: none;
+	background-color: var(--search-bar-border);
+	font-size: 1.5rem;
+	font-family: 'RockoFLF';
+}
+
+.Edit-Season-Form label{
+	width: 90%;
+	height: 40px;
+	font-size: 2rem;
+	font-family: 'RockoFLF';
+}
+
+.Edit-Season-Country-Selector{
+	height: 400px;
+	width: 45%;
+	overflow: auto;
+}
+
+.Edit-Season-Country-Selector-Search{
+	width: 100%;
+	height: 60px;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	position: sticky;
+	top:0;
+}
+
+.Edit-Season-Selector-Button{
+	width: 100%;
+	height: 60px;
+	cursor: pointer;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	background-color: transparent;
+	border: none;
+	text-align: left;
+}
+
+.Edit-Season-Selector-Button-Active{
+	width: 100%;
+	height: 60px;
+	cursor: pointer;
+	font-size: 2.5rem;
+	font-family: 'RockoFLF';
+	background-color: var(--search-bar-border);
+	border: none;
+	text-align: left;
+
+}
+
+.Edit-Season-Selector-Button:hover{
+	background-color: var(--search-bar-border);
+}
+

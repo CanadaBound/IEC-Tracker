@@ -48,6 +48,19 @@ recordRoutes.route("/countries/:id").get(function (req, res) {
       });
 });
 
+// This section will help you get all records that match the query
+recordRoutes.route("/countries/filteredCountries/:name").get(function (req, res) {
+  let db_connect = dbo.getDb("IECTracker");
+  let myquery = { country_name: req.params.name};
+  db_connect
+      .collection("Countries")
+      .find(myquery)
+      .toArray(function (err, result) {
+        if (err) throw err;
+        res.json(result);
+      });
+});
+
 // This section will help you get a single record by id
 recordRoutes.route("/roi/:id").get(function (req, res) {
   let db_connect = dbo.getDb("IECTracker");

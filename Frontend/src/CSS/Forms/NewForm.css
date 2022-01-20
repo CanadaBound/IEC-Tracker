@@ -1,0 +1,42 @@
+.New-Season-Form{
+	height: 400px;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.New-Season-Title{
+	width: 100%;
+	height: 100px;
+	font-family: 'RockoFLF';
+	font-size: 3rem;
+}
+
+.New-Season-Form input{
+	width: 90%;
+	height: 75px;
+	border-radius: 25px;
+	border: none;
+	background-color: var(--search-bar-border);
+	font-size: 1.5rem;
+	font-family: 'RockoFLF';
+}
+
+.New-Season-Form div{
+	height: 25%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.Submit-Button{
+	width: 200px !important; 
+	height: 50px !important;
+	font-family: 'RockoFLF';
+	cursor: pointer;
+}
