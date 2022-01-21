@@ -73,8 +73,14 @@ p, h1, h2, h3, h4, h5, h6 {
   --search-bar-border: #AAAAAA;
   --text-color-secondary: #AAAAAA;
   --text-color-tertiary: #000;
-  --country-card-red-background: #FDAAAA;
-  --country-card-red-other: #EE6969;
+  --country-card-blue-background: #98d8d5;
+  --country-card-blue-other:  	#58babf;
+  --country-card-purple-background: #c4baff ;
+  --country-card-purple-other:  	#9c94cc;
   --positive-chance-border: #68C4AF;
   --positive-chance-background: #96EAD7;
+  --negative-chance-border: #EE6969;
+  --negative-chance-background: #FDAAAA;
+  --neutral-chance-border: #FF964F;
+  --neutral-chance-background: #FFCC99;
 }

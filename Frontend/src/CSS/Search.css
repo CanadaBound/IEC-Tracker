@@ -1,16 +1,17 @@
 .Search-Container{
-	height: 15%;
+	height: max-content;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	margin: 0 0 50px 0;
 }
 
 .Search-Bar{
 	width: 50%;
-	height: 50px;
+	height: 60px;
 	border-radius: 25px;
 	border: 4px solid var(--search-bar-border);
 	background-color: var(--search-bar);
@@ -31,7 +32,7 @@
 	position: absolute;
 	width: 45%;
 	height: max-content;
-	top: 50px;
+	top: 100%;
 	border-bottom-left-radius: 25px;
 	border-bottom-right-radius: 25px;
 	background-color: var(--search-bar);
