@@ -2,7 +2,7 @@ import '../CSS/Search.css';
 import { useEffect, useRef, useState } from 'react';
 import {getData} from '../HelperFunctions';
 
-function Search({setSelectedCountry}){
+function Search({setSelectedCountry,selectedCountry}){
 	const [searchValue, setSearchValue] = useState('');
 	const [originalCountryArr, setOriginalCountryArr]= useState([]);
 	const [countryArr, setCountryArr] = useState([]);
@@ -22,7 +22,7 @@ function Search({setSelectedCountry}){
 		inputRef.current.focus();
 		setSearchValue('');
 		setShowSearch(false);
-		setSelectedCountry(e.currentTarget.textContent);
+		setSelectedCountry(oldArray => [...oldArray, e.currentTarget.textContent] );
 	}
 
 	useEffect(()=>{
@@ -54,6 +54,8 @@ function Search({setSelectedCountry}){
 		}
 		
 	},[searchValue])
+
+	useEffect(()=>{console.log(selectedCountry)},[selectedCountry])
 	
 	
 	
