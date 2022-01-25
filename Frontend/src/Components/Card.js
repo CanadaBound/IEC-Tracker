@@ -85,7 +85,7 @@ function Card({selectedCountry, selectedCountryArr, setSelectedCountryArr}){
 
 	useEffect(()=>{
 		
-		if(selectedCountryROIData !== null && typeof selectedCountryROIData !== 'undefined' && selectedCountryROIData.length > 0){
+		if(selectedCountryROIData !== null && typeof selectedCountryROIData !== 'undefined' && selectedCountryROIData.length > 0 &&selectedCountryData.country_name !== 'Australia'){
 			setShowCountryCard(true);
 			var copyArr = [...selectedCountryROIData];
 				copyArr = copyArr.slice(0,2);
@@ -104,6 +104,9 @@ function Card({selectedCountry, selectedCountryArr, setSelectedCountryArr}){
 			}
 
 
+		}else{
+			setOnePersonPct('100%');
+			setTwoPeoplePct('100%');
 		}
 	},[selectedCountryROIData]);
 
@@ -167,7 +170,7 @@ function Card({selectedCountry, selectedCountryArr, setSelectedCountryArr}){
 				</section>
 				<section className={cardPermits}>
 					<p>Permits Left:</p>
-					<p>{selectedCountryROIData[0].country_permits-selectedCountryROIData[0].country_invitations}</p>
+					<p>{selectedCountryData.country_name === 'Australia'?'Unlimited':selectedCountryData.country_quota-selectedCountryROIData[0].country_invitations}</p>
 				</section>
 				<section className={cardHistory}>
 					<p className='Historical-Title'>Historical Draws (Previous 3 weeks)</p>
@@ -177,8 +180,8 @@ function Card({selectedCountry, selectedCountryArr, setSelectedCountryArr}){
 						</div>
 						<div className='Permits'>
 							{selectedCountryROIData.length>0?<p>{selectedCountryROIData[0].country_invitations}</p>:null}
-							{selectedCountryROIData.length>1?<p>{selectedCountryROIData[1].country_invitations-selectedCountryROIData[0].country_invitations}</p>:null}
-							{selectedCountryROIData.length>2?<p>{selectedCountryROIData[2].country_invitations-selectedCountryROIData[1].country_invitations}</p>:null}
+							{selectedCountryROIData.length>2 ?<p>{selectedCountryROIData[1].country_invitations-selectedCountryROIData[0].country_invitations}</p>:<p>0</p>}
+							{selectedCountryROIData.length>=3?<p>{selectedCountryROIData[2].country_invitations-selectedCountryROIData[1].country_invitations}</p>:null}
 						</div>
 					</div>
 				</section>
