@@ -1,23 +1,105 @@
 import '../CSS/Navigation.css';
+import axios from 'axios';
 import {useNavigate, Link} from 'react-router-dom';
+import { useState, useEffect } from 'react';
 function Navigation(){
+
+	let navigate = useNavigate();
+
+	const [toggleDropdown, setToggleDropdown]= useState(false);
+	const [username, setUsername]= useState('');
+	const [password, setPassword]= useState('');
+	const [adminView, setAdminView] = useState(false);
+
+
+	function handleLogin(e){
+		e.preventDefault();
+
+		axios.post('/login', {
+			username: username,
+			password: password
+		  })
+		  .then(res=>{
+			  if(res.status === 200){
+				localStorage.setItem("username", username);
+				setUsername('');
+				setPassword('');
+				navigate('/Admin', { replace: true });
+				window.location.reload();
+
+			  }else{
+				  throw res.error;
+			  }
+			  setToggleDropdown(false);
+			  setAdminView(true);
+			
+		  })
+		  .catch(err => {
+			console.log(err);
+			alert('Error logging in!');
+		  });
+
+	}
+
+	function handleLogout(){
+		axios.get('/logout').then(res=>localStorage.removeItem("username")).catch(err=>console.log(err));
+		navigate('/', { replace: true });
+		setToggleDropdown(false);
+		setAdminView(false);
+	}
+
+	useEffect(()=>{
+		axios.get('/auth')
+		.then(res=>{
+		  console.log(res);
+		  if(res.status === 200){
+			setAdminView(true);
+
+		  }else{
+			setAdminView(false);
+	
+	
+		  }
+		})
+		.catch(err=>{
+
+		  setAdminView(false);
+		})
+	
+	
+	  },[]);
+
 
 
 return(
 	<>
 		<header className="Header-Container">
 			<nav className="Navigation-Menu">
-				<button className="History-Button">
-					<svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 24 24">
-						<path fill='#fff' d="M24 12c0 6.627-5.373 12-12 12s-12-5.373-12-12h2c0 5.514 4.486 10 10 10s10-4.486 10-10-4.486-10-10-10c-2.777 0-5.287 1.141-7.099 2.977l2.061 2.061-6.962 1.354 1.305-7.013 2.179 2.18c2.172-2.196 5.182-3.559 8.516-3.559 6.627 0 12 5.373 12 12zm-13-6v8h7v-2h-5v-6h-2z"/>
-					</svg>
+				{adminView?
+				<button className={toggleDropdown?'Admin-Button-Loggedin-Active':"Admin-Button"} onClick={()=>setToggleDropdown(prev=>!prev)}>
+				<svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user-circle" class="svg-inline--fa fa-user-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill='#cccccc' d="M248 104c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm0 144c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm0-240C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-49.7 0-95.1-18.3-130.1-48.4 14.9-23 40.4-38.6 69.6-39.5 20.8 6.4 40.6 9.6 60.5 9.6s39.7-3.1 60.5-9.6c29.2 1 54.7 16.5 69.6 39.5-35 30.1-80.4 48.4-130.1 48.4zm162.7-84.1c-24.4-31.4-62.1-51.9-105.1-51.9-10.2 0-26 9.6-57.6 9.6-31.5 0-47.4-9.6-57.6-9.6-42.9 0-80.6 20.5-105.1 51.9C61.9 339.2 48 299.2 48 256c0-110.3 89.7-200 200-200s200 89.7 200 200c0 43.2-13.9 83.2-37.3 115.9z"></path></svg>
 				</button>
-				<Link to='/Admin' className="Admin-Button">
-					<svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" viewBox="0 0 24 24">
-						<path fill='#fff' d="M22 18.055v2.458c0 1.925-4.655 3.487-10 3.487-5.344 0-10-1.562-10-3.487v-2.458c2.418 1.738 7.005 2.256 10 2.256 3.006 0 7.588-.523 10-2.256zm-10-3.409c-3.006 0-7.588-.523-10-2.256v2.434c0 1.926 4.656 3.487 10 3.487 5.345 0 10-1.562 10-3.487v-2.434c-2.418 1.738-7.005 2.256-10 2.256zm0-14.646c-5.344 0-10 1.562-10 3.488s4.656 3.487 10 3.487c5.345 0 10-1.562 10-3.487 0-1.926-4.655-3.488-10-3.488zm0 8.975c-3.006 0-7.588-.523-10-2.256v2.44c0 1.926 4.656 3.487 10 3.487 5.345 0 10-1.562 10-3.487v-2.44c-2.418 1.738-7.005 2.256-10 2.256z"/>
-					</svg>
-				</Link>
+				:
+				<button className={toggleDropdown?'Admin-Button-Active':"Admin-Button"} onClick={()=>setToggleDropdown(prev=>!prev)}>
+				<svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="user-circle" class="svg-inline--fa fa-user-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill='#cccccc' d="M248 104c-53 0-96 43-96 96s43 96 96 96 96-43 96-96-43-96-96-96zm0 144c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm0-240C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-49.7 0-95.1-18.3-130.1-48.4 14.9-23 40.4-38.6 69.6-39.5 20.8 6.4 40.6 9.6 60.5 9.6s39.7-3.1 60.5-9.6c29.2 1 54.7 16.5 69.6 39.5-35 30.1-80.4 48.4-130.1 48.4zm162.7-84.1c-24.4-31.4-62.1-51.9-105.1-51.9-10.2 0-26 9.6-57.6 9.6-31.5 0-47.4-9.6-57.6-9.6-42.9 0-80.6 20.5-105.1 51.9C61.9 339.2 48 299.2 48 256c0-110.3 89.7-200 200-200s200 89.7 200 200c0 43.2-13.9 83.2-37.3 115.9z"></path></svg>
+				</button>}
+				{adminView?<div className={toggleDropdown?'Username-Container-Active':'Username-Container'}>
+				<p className='Username-Text'>Hi, {localStorage.getItem("username")}!</p>
+				<div className="Button-Container">
+					<button className='Dashboard-Button' onClick={()=>navigate('/Admin', { replace: true })}><img alt='Dashboard' src="https://img.icons8.com/ios/50/000000/web.png"/></button>
+					<p>Dashboard</p>
+				</div>
+				
+				<button onClick={(e)=>handleLogout(e)} className='Logout-Button'>Logout</button>
 
+				</div>:<div className={toggleDropdown?'Login-Container-Active':'Login-Container'}>
+					<form className='Login-Form'>
+						<input type='text' value = {username} onChange={(e)=>setUsername(e.currentTarget.value)}className='Username' placeholder='Username..'/>
+						<input type='password' value = {password} onChange={(e)=>setPassword(e.currentTarget.value)} className='Password' placeholder='Password..'/>
+						<button onClick={(e)=>handleLogin(e)} className='Redirect'>Login</button>
+									
+					</form>
+				</div>}
 			</nav>
 			<div className="Title-Container">
 				<h1 className="Title">IEC Tracker</h1>

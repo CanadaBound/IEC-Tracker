@@ -44,7 +44,7 @@
 }
 
 .New-ROI-Button::after{
-	content: 'New Season';
+	content: 'New ROI';
 	font-size: 1rem;
 	font-family: 'RockoFLF';
 	font-weight: 600;
