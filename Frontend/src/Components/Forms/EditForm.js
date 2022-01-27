@@ -123,7 +123,7 @@ function EditForm(){
 				<input type='text' value={quota} onChange={(e)=>setQuota(e.currentTarget.value)} placeholder={selectedCountry.country_quota}/>
 				<label>Season:</label>
 				<input type='text' value={season} onChange={(e)=>setSeason(e.currentTarget.value)} placeholder={selectedCountry.country_season}/>
-				<input type='submit' className='Submit-Button' onClick={(e)=>onUpdate(e,selectedCountry._id)}/>
+				<button className='Edit-Season-Submit-Button' onClick={(e)=>onUpdate(e,selectedCountry._id)}>Save</button>
 			</form>:<form className='Edit-Season-Form'></form>}
 
 		</div>

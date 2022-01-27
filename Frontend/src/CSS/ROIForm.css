@@ -273,6 +273,8 @@
 }
 
 
+
+
 @keyframes buttonEffect{
 	0%{
 		left: -58px;
@@ -291,4 +293,284 @@
 	}
 }
 
+@keyframes buttonSlideDown{
+	0%{
+		top: 91.5%;
+	}
+	100%{
+		top:101.5%;
+	}
+}
 
+@keyframes buttonSlideUp{
+	0%{
+		top:101.5%;
+	}
+	100%{
+		top: 91.5%;
+	}
+}
+
+
+@media screen and (max-width: 1005px) {
+	
+	.New-ROI-Button{
+		width: 50px;
+		height: 100px;
+		border: none;
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 25px;
+		border-bottom-right-radius: 25px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content:flex-end;
+		position: absolute;
+		position: absolute;
+		top:91.5%;
+		left: 50px;
+		cursor: pointer;
+		background-color: #018a23;
+		z-index: -1;
+		animation: buttonSlideUp 0.5s ease-in;
+	}
+	.New-ROI-Button:hover{
+		animation: buttonSlideDown 0.5s ease-in ; 
+		top:101.5% ;
+		left: 50px;
+	
+	
+	}
+	
+	
+	.New-ROI-Button svg{
+		margin: 20px 10px 10px 10px;
+	}
+	
+	.New-ROI-Button::before{
+		content: 'New';
+		font-size: 1rem;
+		font-family: 'RockoFLF';
+		font-weight: 600;
+		
+	
+	} 
+
+	.New-ROI-Button::after{
+		display:none;
+	}
+	
+	.New-ROI-Button-Active{
+		width: 50px;
+		height: 100px;
+		border: none;
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 25px;
+		border-bottom-right-radius: 25px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-end;
+		position: absolute;
+		top:101.5%;
+		left: 50px;
+		cursor: pointer;
+		background-color: #018a23;
+	}
+	
+	
+	.New-ROI-Button-Active svg{
+		margin: 20px 10px 10px 10px;
+	}
+	
+	.New-ROI-Button-Active::before{
+		content: 'New';
+		font-size: 1rem;
+		font-family: 'RockoFLF';
+		font-weight: 600;
+	
+	} 
+
+	.New-ROI-Button-Active::after{
+		display: none;
+	}
+	
+	.Edit-ROI-Button{
+		width: 50px;
+		height: 100px;
+		border: none;
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 25px;
+		border-bottom-right-radius: 25px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content:flex-end;
+		position: absolute;
+		top:91.5%;
+		left: 110px;
+		cursor: pointer;
+		background-color: #ffa703;
+		z-index: -1;
+		animation: buttonSlideUp 0.5s ease-in;
+	}
+	
+	.Edit-ROI-Button svg{
+		margin: 20px 10px 10px 10px;
+	}
+	
+	.Edit-ROI-Button:hover{
+		animation: buttonSlideDown 0.5s ease-in; 
+		top:101.5%;
+		left:110px;
+	
+	
+	}
+	
+	.Edit-ROI-Button::before{
+		content: 'Edit';
+		font-size: 1rem;
+		font-family: 'RockoFLF';
+		font-weight: 600;
+		
+	
+	} 
+
+	.Edit-ROI-Button::after{
+		display: none;
+	}
+	
+	.Edit-ROI-Button-Active{
+		width: 50px;
+		height: 100px;
+		border: none;
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 25px;
+		border-bottom-right-radius: 25px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-end;
+		position: absolute;
+		top:101.5%;
+		left: 110px;
+		cursor: pointer;
+		background-color: #ffa703;
+		z-index: -1;
+		/* animation: buttonEffectReverse 0.5s ease-in; */
+	}
+	
+	.Edit-ROI-Button-Active svg{
+		margin: 20px 10px 10px 10px;
+
+	}
+	
+	
+	
+	.Edit-ROI-Button-Active::before{
+		content: 'Edit';
+		font-size: 1rem;
+		font-family: 'RockoFLF';
+		font-weight: 600;
+		
+	
+	} 
+
+	.Edit-ROI-Button-Active::after{
+		display: none;
+	}
+	.Delete-ROI-Button{
+		width: 50px;
+		height: 100px;
+		border: none;
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 25px;
+		border-bottom-right-radius: 25px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content:flex-end;
+		position: absolute;
+		top:91.5%;
+		left: 170px;
+
+		cursor: pointer;
+		background-color: #ff0000;
+		z-index: -1;
+		animation: buttonSlideUp 0.5s ease-in;
+	}
+	
+	.Delete-ROI-Button svg{
+		margin: 20px 10px 10px 10px;
+	}
+	
+	.Delete-ROI-Button:hover{
+		animation: buttonSlideDown 0.5s ease-in ; 
+		top:101.5% ;
+		left: 170px;
+	
+	
+	}
+	
+	.Delete-ROI-Button::before{
+		content: 'Delete';
+		font-size: 0.9rem;
+		font-family: 'RockoFLF';
+		font-weight: 600;
+		
+	
+	}
+
+	.Delete-ROI-Button::after{
+		display: none;
+	}
+	
+	.Delete-ROI-Button-Active{
+		width: 50px;
+		height: 100px;
+		border: none;
+		border-top-left-radius: 0px;
+		border-bottom-left-radius: 25px;
+		border-bottom-right-radius: 25px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-end;
+		position: absolute;
+		top:101.5%;
+		left: 170px;
+		cursor: pointer;
+		background-color: #ff0000;
+		z-index: -1;
+		/* animation: buttonEffectReverse 0.5s ease-in; */
+	}
+	
+	.Delete-ROI-Button-Active svg{
+		margin: 20px 10px 10px 10px;
+	}
+	
+	
+	.Delete-ROI-Button-Active::before{
+		content: 'Delete';
+		font-size: 0.9rem;
+		font-family: 'RockoFLF';
+		font-weight: 600;
+		
+	
+	}
+
+	.Delete-ROI-Button-Active::after{
+		display: none;
+	}
+}
+
+@media screen and (max-width:500px) {
+	.ROI-Form{
+		width: 100%;
+	}
+}
+@media screen and (max-width:336px) {
+	.Season-Button, .ROI-Button-Active{
+		width: 140px;
+	}
+}

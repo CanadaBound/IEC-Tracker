@@ -354,3 +354,47 @@
 .Bin-Button:hover{
 	opacity: 1;
 }
+
+@media screen and (max-width:880px) {
+	.Full-Card-Wrapper{
+		margin: 0 0 40px 0;
+	}
+}
+
+@media screen and (max-width:440px) {
+	
+	.Card-Container{
+		width: 100%;
+	}
+	
+	.Country-Quota, .Country-Candidates, .Country-Permits, .Historical-Draws, .Country-Name{
+		width: 95%;
+	
+	}
+
+	.Card-Container-Two{
+		width: 100%;
+	}
+	
+	.Country-Quota-Two, .Country-Candidates-Two, .Country-Permits-Two, .Historical-Draws-Two, .Country-Name-Two{
+		width: 95%;
+	
+	}
+
+	.Favourite-Button, .Favourite-Button-Active{
+		top: -30px;
+		left: 65%;
+	}
+
+	.Bin-Button{
+		top: -30px;
+		left: 85%;
+	}
+}
+
+@media screen and (max-width:400px) {
+	
+	.Card-Border{
+		width: 100%;;
+	}
+}
