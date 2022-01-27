@@ -46,11 +46,6 @@
 	background-color: var(--search-bar-border);
 }
 
-.Selector-Container:hover .Delete-Button{
-	animation: deleteButton 0.5s ease-in;
-	transform: translateX(0%);
-
-}
 
 .Delete-Button{
 	position: absolute;
@@ -79,5 +74,37 @@
 	}
 	100%{
 		transform: translateX(0%);
+	}
+}
+
+@media (hover:none){
+	.Delete-Button{
+		transform: translateX(0%);
+	}
+}
+
+@media (hover:hover){
+	.Selector-Container:hover .Delete-Button{
+		animation: deleteButton 0.5s ease-in;
+		transform: translateX(0%);
+	
+	}
+}
+
+@media screen and (max-width: 540px) {
+	.Delete-Season-Title{
+		font-size: 2.2rem;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.Delete-Season-Title{
+		font-size: 1.75rem;
+	}
+}
+
+@media screen and (max-width: 340px) {
+	.Selector-Container{
+		font-size: 2rem;
 	}
 }

@@ -81,3 +81,94 @@
 .New-ROI-Selector-Button:hover{
 	background-color: var(--search-bar-border);
 }
+
+@media screen and (max-width:700px) {
+	.New-ROI-Country-Selector-Search{
+		font-size: 2rem;
+
+	}
+	
+	.New-ROI-Selector-Button{
+		font-size: 2rem;
+	}
+	
+	.New-ROI-Selector-Button-Active{
+		font-size: 2rem;
+
+	}
+	
+}
+@media screen and (max-width:600px){
+	.New-ROI-Title{
+		font-size:2.25rem;
+	}
+}
+
+@media screen and (max-width:540px) {
+	.New-ROI-Country-Selector-Search{
+		font-size: 1.5rem;
+
+	}
+	
+	.New-ROI-Selector-Button{
+		font-size: 1.5rem;
+	}
+	
+	.New-ROI-Selector-Button-Active{
+		font-size: 1.5rem;
+
+	}
+	.New-ROI-Form input{
+		height:60px;
+		width: 80%;
+		font-size: 1rem;
+	}
+	
+
+	
+}
+
+@media screen and (max-width:450px){
+	.New-ROI-Title{
+		font-size:2rem;
+	}
+}
+
+@media screen and (max-width: 435px) {
+
+	.New-ROI-Form input{
+		height:60px;
+		width: 95%;
+		font-size: 1rem;
+	}
+	
+	
+}
+
+@media screen and (max-width:425px) {
+	.New-ROI-Country-Selector-Search{
+		font-size: 1.25rem;
+
+	}
+	
+	.New-ROI-Selector-Button{
+		font-size: 1.25rem;
+	}
+	
+	.New-ROI-Selector-Button-Active{
+		font-size: 1.25rem;
+
+	}
+	
+}
+
+@media screen and (max-width: 365px) {
+
+	.New-ROI-Form input{
+		height:60px;
+		width: 95%;
+		font-size: 0.8rem;
+	}
+	
+	
+}

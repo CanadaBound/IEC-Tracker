@@ -78,3 +78,33 @@
 	text-align: left;
 	cursor: pointer;
 }
+
+@media screen and (max-width:700px) {
+	
+	.Search-Bar{
+		width: 60%;
+	}
+	.Search-Dropdown{
+		width: 55%;
+	}
+}
+
+@media screen and (max-width:550px) {
+	
+	.Search-Bar{
+		width: 80%;
+	}
+	.Search-Dropdown{
+		width: 75%;
+	}
+}
+
+@media screen and (max-width:420px) {
+	
+	.Search-Bar{
+		width: 90%;
+	}
+	.Search-Dropdown{
+		width: 80%;
+	}
+}

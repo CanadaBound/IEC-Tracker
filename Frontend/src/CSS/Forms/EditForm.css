@@ -25,7 +25,7 @@
 
 .Edit-Season-Form input{
 	width: 90%;
-	height: 75px;
+	height: 50px;
 	border-radius: 25px;
 	border: none;
 	background-color: var(--search-bar-border);
@@ -36,7 +36,7 @@
 .Edit-Season-Form label{
 	width: 90%;
 	height: 40px;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	font-family: 'RockoFLF';
 }
 
@@ -80,5 +80,35 @@
 
 .Edit-Season-Selector-Button:hover{
 	background-color: var(--search-bar-border);
+}
+
+.Edit-Season-Submit-Button{
+	width: 50%;
+	height: 40px;
+	font-family: 'RockoFLF';
+	cursor: pointer;
+	border-radius: 25px;
+	border: none;
+	background-color: var(--search-bar-border);
+	font-size: 1.5rem;
+}
+
+@media screen and (max-width:490px) {
+	.Edit-Season-Selector-Button, .Edit-Season-Selector-Button-Active, .Edit-Season-Country-Selector, .Edit-Season-Country-Selector-Search{
+		font-size: 2rem;
+	}
+}
+
+
+@media screen and (max-width:451px) {
+	.Edit-Season-Title{
+		font-size: 1.95rem;
+	}
+}
+
+@media screen and (max-width:490px) {
+	.Edit-Season-Selector-Button, .Edit-Season-Selector-Button-Active, .Edit-Season-Country-Selector, .Edit-Season-Country-Selector-Search{
+		font-size: 1.5rem;
+	}
 }
 

@@ -9,7 +9,7 @@
 
 .Quote{
 	color: var(--text-color-secondary);
-	font-size: 20px;
+	font-size: 1rem;
 	font-family: 'RockoFLF';
-
+	max-width: 85%;
 }

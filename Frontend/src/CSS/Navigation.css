@@ -15,7 +15,7 @@
 	justify-content: space-evenly;
 	align-items: flex-start;
 	position: relative;
-	z-index: 1;
+	z-index: 6;
 	padding: 0 0 0 25px;
 }
 
@@ -30,12 +30,12 @@
 }
 
 .Title-Container svg{
-	height: 100px;
-	width: 100px;
+	height:clamp(4rem, 2.8772rem + 5.6140vw, 12rem);
+	width: clamp(4rem, 2.8772rem + 5.6140vw, 12rem);
 }
 
 .Title{
-	font-size: 6rem;
+	font-size: clamp(2rem, 1.1579rem + 4.2105vw, 8rem);
 	font-family: 'RockoUltraFLF';
 	color: var(--text-color);
 }
@@ -58,10 +58,11 @@
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
-	margin: 0 0 0 0px;
 	opacity: 1;
-	position: relative;
-	
+	position: absolute;
+	z-index: 3;
+	top: 33.5%;
+	left: 35px;
 }
 
 .Admin-Button-Active svg{
@@ -73,7 +74,7 @@
 	/* filter: brightness(0%) saturate(100%) invert(46%) sepia(81%) saturate(7465%) hue-rotate(350deg) brightness(89%) contrast(136%) */
 }
 
-.Admin-Button-Active::after{
+/* .Admin-Button-Active::after{
 	content: 'Admin Login';
 	position: absolute;
 	height: 120%;
@@ -95,7 +96,7 @@
 	font-size: 2rem;
 	font-family: 'RockoFLF';
 	padding: 0 40px 0 0;	
-}
+} */
 
 .Login-Container{
 	position: absolute;
@@ -112,25 +113,27 @@
 
 .Login-Container-Active{
 	position: absolute;
-	height: 300px;
+	height: 360px;
 	width: 300px;
 	z-index: 2;
 	background-color: var(--search-bar);
-	top:62%;
+	top: 32.5%;
 	left: 25px;
-	border-bottom-left-radius: 18px;
-	border-bottom-right-radius: 18px;
-	display: block;
+	border-radius: 18px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: center;
 	border-bottom: 4px solid var(--search-bar-border);
 	border-left: 4px solid var(--search-bar-border);
 	border-right: 4px solid var(--search-bar-border);
-
+	border-top: 4px solid var(--search-bar-border);
 
 }
 
 .Login-Form{
 	width: 100%;
-	height: 100%;
+	height: 80%;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-evenly;
@@ -187,22 +190,25 @@
 
 .Username-Container-Active{
 	position: absolute;
-	height: 100px;
+	height: 175px;
 	width: 300px;
 	z-index: 2;
 	background-color: var(--search-bar);
-	bottom: -2%;
+	bottom: -25%;
 	left: 25px;
+	border-top-left-radius: 18px;
+	border-top-right-radius: 18px;
 	border-bottom-left-radius: 18px;
 	border-bottom-right-radius: 18px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-end;
+	border-top: 4px solid var(--search-bar-border);
 	border-bottom: 4px solid var(--search-bar-border);
 	border-left: 4px solid var(--search-bar-border);
 	border-right: 4px solid var(--search-bar-border);
-	
+	padding: 0 0 20px 0;
 
 
 }
@@ -215,7 +221,10 @@
 	cursor: pointer;
 	margin: 0 0 0 0;
 	opacity: 1;
-	position: relative;
+	position: absolute;
+	z-index:3;
+	top: 42.5%;
+	left: 20%;
 	
 }
 
@@ -224,7 +233,7 @@
 }
 
 
-.Admin-Button-Loggedin-Active::after{
+/* .Admin-Button-Loggedin-Active::after{
 	content: '';
 	position: absolute;
 	height: 120%;
@@ -246,11 +255,11 @@
 	font-size: 2rem;
 	font-family: 'RockoFLF';
 	padding: 0 40px 0 0;	
-}
+} */
 
 .Logout-Button{
 	width: 40%;
-	height: 50%;
+	height: 25%;
 	text-decoration: none;
 	background-color: var(--search-bar-border);
 	color: black;
@@ -270,8 +279,9 @@
 	font-size: 1.75rem;
 	font-family: 'RockoFLF';
 	position: absolute;
-	top: -50%;
+	top: 0%;
 	right: 10%;
+	z-index: 3;
 }
 
 .Button-Container{
@@ -281,6 +291,7 @@
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
+	z-index: 2;
 }
 
 .Dashboard-Button{
@@ -298,4 +309,79 @@
 	position: relative;
 	
 
+}
+
+.Login-Title{
+	color: black;
+	font-size: 1.75rem;
+	font-family: 'RockoFLF';
+	margin: 0 0 25px 25px;
+}
+
+@media screen and (max-width:500px){
+	.Login-Container{
+		width: 100vw;
+		border-radius: 0;
+		top:0;
+		left:0;
+		display: block;
+		animation: slideIn 0.5s ease-in;
+		transform: translateY(-350px);
+	}
+	.Login-Container-Active{
+		width: 100vw;
+		border-radius: 0;
+		top:0;
+		left:0;
+		animation: slideOut 0.5s ease-in;
+		transform: translateY(0px);
+	}
+
+	.Admin-Button-Active{
+		top: 1%;
+		left:30px;
+		animation: slideOut 0.5s ease-in;
+	}
+
+	.Username-Container{
+		width: 100vw;
+		border-radius: 0;
+		top:0;
+		left:0;
+		animation: slideIn 0.5s ease-in;
+	}
+
+	.Username-Container-Active{
+		width: 100vw;
+		border-radius: 0;
+		top:0;
+		left:0;
+		animation: slideOut 0.5s ease-in;
+	}
+	.Admin-Button-Loggedin-Active{
+		top:1%;
+		animation: slideOut 0.5s ease-in;
+	}
+
+	.Username-Text{
+		left:16%;
+	}
+}
+
+@keyframes slideOut{
+	0%{
+		transform: translateY(-350px);
+	}
+	100%{
+		transform: translateY(0px);
+	}
+}
+
+@keyframes slideIn{
+	0%{
+		transform: translateY(0px);
+	}
+	100%{
+		transform: translateY(-350px);
+	}
 }

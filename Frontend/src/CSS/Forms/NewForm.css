@@ -40,3 +40,10 @@
 	font-family: 'RockoFLF';
 	cursor: pointer;
 }
+
+@media screen and (max-width:500px){
+	.New-Season-Title{
+		font-size:2rem;
+	}
+}
+
