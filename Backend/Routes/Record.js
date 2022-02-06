@@ -1,17 +1,16 @@
 const express = require("express");
 
+//This is the authenticator that checks the cookie of a user.
 const withAuth = require('../middleware');
 
 const secret = 'ThisIsSuchASecret';
 const jwt = require('jsonwebtoken');
 
 const cookieParser = require('cookie-parser');
-
+//Password encryption
 const bcrypt = require("bcrypt");
 const saltRounds = 10;
-// recordRoutes is an instance of the express router.
-// We use it to define our routes.
-// The router will be added as a middleware and will take control of requests starting with path /record.
+
 const recordRoutes = express.Router();
 recordRoutes.use(cookieParser());
 // This will help us connect to the database
@@ -46,7 +45,7 @@ recordRoutes.route("/roi").get(function (req, res) {
     });
 });
 
-// This section will help you get a single record by id
+// This section will help you get a single country record by id
 recordRoutes.route("/countries/:id").get(function (req, res) {
   let db_connect = dbo.getDb("IECTracker");
   let myquery = { _id: ObjectId( req.params.id )};
@@ -61,7 +60,7 @@ recordRoutes.route("/countries/:id").get(function (req, res) {
 
 
 
-// This section will help you get a single record by id
+// This section will help you get a single roi record by id
 recordRoutes.route("/roi/:id").get(function (req, res) {
   let db_connect = dbo.getDb("IECTracker");
   let myquery = { _id: ObjectId( req.params.id )};
@@ -73,7 +72,7 @@ recordRoutes.route("/roi/:id").get(function (req, res) {
       });
 });
 
-// This section will help you get all records that match the query
+// This section will help you get all ROI records that match the query
 recordRoutes.route("/roi/filteredROI/:name").get(function (req, res) {
   let db_connect = dbo.getDb("IECTracker");
   let myquery = { country_name: req.params.name};
@@ -86,7 +85,7 @@ recordRoutes.route("/roi/filteredROI/:name").get(function (req, res) {
       });
 });
 
-// This section will help you get all records that match the query
+// This section will help you get all Country records that match the query
 recordRoutes.route("/countries/filteredCountries/:name").get(function (req, res) {
   let db_connect = dbo.getDb("IECTracker");
   let myquery = { country_name: req.params.name};
@@ -123,7 +122,9 @@ recordRoutes.route("/admin").post(withAuth,function (req, response) {
   
 });
 
-// This section will help you create a new record for Admin collection.
+// This section will handle login functionality of checking and comparing user data. It uses bcrypt to compare
+//the users entered password versus the one stored in the db. If it's valid, it issues a token and creates a cookie
+//which expires after an hour.
 recordRoutes.route("/login").post(function (req, response) {
   let db_connect = dbo.getDb("IECTracker");
   let myObj = {
@@ -133,7 +134,6 @@ recordRoutes.route("/login").post(function (req, response) {
       .collection("Admin")
       .findOne(myObj, function (err, result) {
         if (err) throw err;
-        console.log(result);
         bcrypt.compare(req.body.password, result.password, (err, data)=>{
           if (err) throw err;
           if (data) {
@@ -185,7 +185,7 @@ recordRoutes.route("/roi").post(withAuth,function (req, response) {
   });
 });
 
-// This section will help you update a record by id.
+// This section will help you update a record by id in countries.
 recordRoutes.route("/countries/:id").put(withAuth,function (req, response) {
   let db_connect = dbo.getDb("IECTracker"); 
   let myquery = { _id: ObjectId( req.params.id )};
@@ -206,7 +206,7 @@ recordRoutes.route("/countries/:id").put(withAuth,function (req, response) {
 });
 
 
-// This section will help you update a record by id.
+// This section will help you update a record by id in ROI.
 recordRoutes.route("/roi/:id").put(withAuth,function (req, response) {
   let db_connect = dbo.getDb("IECTracker");
   let myquery = { _id: ObjectId( req.params.id )};
@@ -228,7 +228,7 @@ recordRoutes.route("/roi/:id").put(withAuth,function (req, response) {
     });
 });
 
-// This section will help you delete a record
+// This section will help you delete a record in countries
 recordRoutes.route("/countries/:id").delete(withAuth,function(req, response){
   let db_connect = dbo.getDb("IECTracker");
   let myquery = { _id: ObjectId( req.params.id )};
@@ -239,7 +239,7 @@ recordRoutes.route("/countries/:id").delete(withAuth,function(req, response){
   });
 });
 
-// This section will help you delete a record
+// This section will help you delete a record in ROI
 recordRoutes.route("/roi/:id").delete(withAuth, function(req, response){
   let db_connect = dbo.getDb("IECTracker");
   let myquery = { _id: ObjectId( req.params.id )};
@@ -250,13 +250,16 @@ recordRoutes.route("/roi/:id").delete(withAuth, function(req, response){
   });
 });
 
+//This is used to authenticate the cookie in the front end, it requires the correct authentication to access
+//so if it sends 200 it's correct.
 recordRoutes.route('/auth').get(withAuth, function (req, res){
   res.sendStatus(200);
 });
 
+//Handles log out, replaces the existing cookie with an empty one that expires in a second
 recordRoutes.route('/logout').get(function(req, res){
   res.cookie('token', 'none', {
-    expires: new Date(Date.now() + 5 * 1000),
+    expires: new Date(Date.now() + 1000),
     httpOnly: true});
   res.status(200).json({success: true, message: 'User logged out successfully' });
 });

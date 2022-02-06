@@ -12,40 +12,36 @@ function DeleteForm(){
 	const [countryArr, setCountryArr] = useState([]);
 	const containerRef = useRef();
 
+	//When delete button has been pressed, we send a request to the API to delete the given record.
 	function onDelete(e,id){
 		e.preventDefault();
 		axios.delete(`countries/${id}`);
 	}
 
+	//We filter the list of countries by what has been typed inside the search box on the form
+	//if the search value is zero we simply copy the original country array we recieved from the API.
 	useEffect(()=>{
-		
 		if(!initLoad){
 			if(searchValue.length === 0 || searchValue === null || typeof searchValue === 'undefined'){
-				console.log('no search text');
 				var noSearchCopy = [...originalCountryArr];
 				setCountryArr(noSearchCopy.sort());
 			}else{
 				var copyArr = [...originalCountryArr];
 				copyArr = copyArr.filter(country=>country.country_name.toLowerCase().includes(searchValue.toLowerCase())).sort();
-			
 				setCountryArr(copyArr);
-
 			}
 		}else{
 			setInitLoad(false);
-		}
-		
+		}		
 	},[searchValue])
 
+	//This runs the API helper function that retrieves all the country data.
 	useEffect(()=>{
 
 		getData().then(res=>{
 			setOriginalCountryArr(res.data);
 			setCountryArr(res.data);
-
 		});
-		
-	
 	},[]);
 	
 

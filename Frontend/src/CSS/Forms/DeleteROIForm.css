@@ -84,6 +84,7 @@
 	text-align: left;
 	position: relative;
 	cursor: auto;
+	overflow-x: hidden;
 }
 
 .Delete-Selector-Container:hover{

@@ -189,13 +189,13 @@
 }
 
 .Username-Container-Active{
-	position: absolute;
+	position: relative;
 	height: 175px;
 	width: 300px;
 	z-index: 2;
 	background-color: var(--search-bar);
 	bottom: -25%;
-	left: 25px;
+	left: 0px;
 	border-top-left-radius: 18px;
 	border-top-right-radius: 18px;
 	border-bottom-left-radius: 18px;
@@ -223,8 +223,8 @@
 	opacity: 1;
 	position: absolute;
 	z-index:3;
-	top: 42.5%;
-	left: 20%;
+	top: 32%;
+	left: 35px;
 	
 }
 

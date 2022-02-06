@@ -13,26 +13,21 @@ function App() {
 
   const [adminView, setAdminView] = useState(false);
 
-  useEffect(()=>{
-    axios.get('/auth')
-    .then(res=>{
-      console.log(res);
-      if(res.status === 200){
-        setAdminView(true);
-        console.log(true);
-      }else{
-        setAdminView(false);
-        console.log(false);
-
-      }
-    })
-    .catch(err=>{
-      console.log(err);
-      setAdminView(false);
-    })
-
-
-  },[]);
+  //This useEffect runs when a person first opens the page and it sends a request to the backend to verify if there is a cookie stored from previous login,
+	//and if there is a cookie, if it's still valid. If it is, you will automatically go into Admin mode otherwise you will have to log in again.
+	useEffect(()=>{
+		axios.get('/auth')
+			.then(res=>{
+				if(res.status === 200){
+					setAdminView(true);
+				}else{
+					setAdminView(false);
+				}
+			})
+			.catch(err=>{
+				setAdminView(false);
+			})
+	},[]);
 
   return (
     <BrowserRouter>

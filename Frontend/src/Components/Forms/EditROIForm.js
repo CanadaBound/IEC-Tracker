@@ -1,6 +1,6 @@
 import {useState, useEffect, useRef} from 'react';
 import axios from 'axios';
-import { getAllCountryROI, getData } from '../../HelperFunctions';
+import { getAllCountryROI, getData, isNumber } from '../../HelperFunctions';
 import '../../CSS/Forms/EditROIForm.css';
 function EditROIForm(){
 
@@ -18,14 +18,15 @@ function EditROIForm(){
 	const [searchValue, setSearchValue] = useState('');
 	const [selectedCountryROI, setSelectedCountryROI] = useState([]);
 
-	const [selectedCountry, setSelectedCountry] = useState([]);
 	const [originalCountryArr, setOriginalCountryArr]= useState([]);
 	const [countryArr, setCountryArr] = useState([]);
 
-	const [prevButton, setPrevButton] = useState();
+	const [prevButton, setPrevButton] = useState('');
 
 	const containerRef = useRef();
 
+	//This function opens the form and gets the required data when a country is clicked. The remainder of it just handles 
+	//the look and function of the buttons when clicked.
 	function toggleROIList(e, name){
 		
 		if(e.currentTarget.className === 'Edit-ROI-Selector-Button'){
@@ -38,7 +39,7 @@ function EditROIForm(){
 			if(prevButton !== null || typeof prevButton !== 'undefined'){
 				var localArr = containerRef.current.childNodes;
 				for(let i=0; i <localArr.length; i++){
-					if(localArr[i].id === prevButton){
+					if(i!== 0 && localArr[i].id === prevButton){
 						localArr[i].className = 'Edit-ROI-Selector-Button';
 					}
 				}
@@ -54,6 +55,8 @@ function EditROIForm(){
 		}
 	}
 
+	//This function gathers the single data required to edit that specific ROI and sets the input values to the existing values in the db. 
+	//The remainder of it just handles the look and function of the buttons when clicked.
 	function editForm(e, roiData){
 		
 		if(e.currentTarget.className === 'Edit-ROI-Selector-Button'){
@@ -68,7 +71,7 @@ function EditROIForm(){
 			if(prevButton !== null || typeof prevButton !== 'undefined'){
 				var localArr = containerRef.current.childNodes;
 				for(let i=0; i <localArr.length; i++){
-					if(localArr[i].id === prevButton){
+					if(i!== 0 && localArr[i].id === prevButton){
 						localArr[i].className = 'Edit-ROI-Selector-Button';
 					}
 				}
@@ -89,13 +92,15 @@ function EditROIForm(){
 		}
 	}
 	
-
+	//After a country has been selected, you can click the back button to the go to th country list. We then hide the ROI list
+	//clear it and any search value in the search box
 	function handleBackButton(){
 		setShowROIList(false);
 		setSelectedCountryROI([]);
 		setSearchValue('');
 	}
 
+	//This is used to send values to the backend to update the correct ROI record. We send all the data to avoid potential empty or incorrect data.
 	function onUpdate(e){
 		e.preventDefault();
 
@@ -120,6 +125,7 @@ function EditROIForm(){
 		  });
 	}
 
+	//This runs the API helper function that retrieves all the country data.
 	useEffect(()=>{
 		if(initLoad){
 			getData().then(res=>{
@@ -133,6 +139,9 @@ function EditROIForm(){
 		}
 	},[]);
 
+	//If ROI list is not open, we filter the list of countries by what has been typed inside the search box on the form
+	//if the search value is zero we simply copy the original country array we recieved from the API. If the ROI list is open
+	//we do the same but on the ROI data not the country data.
 	useEffect(()=>{
 		
 		if(!initLoad && !showROIList){
@@ -149,7 +158,7 @@ function EditROIForm(){
 			}
 		}else if(!initLoad && showROIList){
 			if(searchValue.length === 0 || searchValue === null || typeof searchValue === 'undefined'){
-				console.log('no search text');			
+		
 				var noSearchCopyROI = [...selectedCountryROI];
 				setCountryArr(noSearchCopyROI);
 			}else{
@@ -221,19 +230,19 @@ function EditROIForm(){
                 type="text"
                 placeholder="Candidates"
                 value={candidates}
-                onChange={(e) => setCandidates(e.currentTarget.value)}
+                onChange={(e) => setCandidates(isNumber(e.currentTarget.value))}
               />
               <input
                 type="text"
                 placeholder="Permits Left"
                 value={permits}
-                onChange={(e) => setPermits(e.currentTarget.value)}
+                onChange={(e) => setPermits(isNumber(e.currentTarget.value))}
               />
               <input
                 type="text"
                 placeholder="Invitations"
                 value={invitations}
-                onChange={(e) => setInvitations(e.currentTarget.value)}
+                onChange={(e) => setInvitations(isNumber(e.currentTarget.value))}
               />
               <input
                 type="date"
