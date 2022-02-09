@@ -1,4 +1,7 @@
+import { useEffect, useRef } from "react";
 import axios from "axios";
+//API Related functions
+
 
 //Get all Country data from database
 export async function getData(){
@@ -42,3 +45,38 @@ export async function getAllCountryROI(name){
 
 }
 
+
+//Other shared functions
+
+//useInterval hook for changing the quotes on the bottom of the landing page every few seconds
+export function useInterval(callback, delay) {
+	const savedCallback = useRef();
+  
+	// Remember the latest callback.
+	useEffect(() => {
+	  savedCallback.current = callback;
+	}, [callback]);
+  
+	// Set up the interval.
+	useEffect(() => {
+	  function tick() {
+		savedCallback.current();
+	  }
+	  if (delay !== null) {
+		let id = setInterval(tick, delay);
+		return () => clearInterval(id);
+	  }
+	}, [delay]);
+}
+
+//Validate that input is number only in number only inputs
+
+export function isNumber(value){
+	return value.replace(/\D/g, '');
+}
+
+//Validate that input is letters only in letter only inputs
+
+export function isLetter(value){
+	return value.replace(/[^a-zA-Z]/g,"");
+}

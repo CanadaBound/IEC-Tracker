@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import '../CSS/Quotes.css';
 import QuoteList from '../Assets/Data/QuoteList';
-import useInterval from '../useInterval';
+import {useInterval} from '../HelperFunctions';
 function Quotes(){
 
 	const [index, setIndex] = useState(0);
 
+	//This is a custom hook that will take time in milliseconds and run the code within it every x milliseconds.
+	//The code within simply increases the index value up to the max value within the QuoteList array. This index is then used
+	//to display a quote under that index.
 	useInterval(()=>{
 		if(index < QuoteList.length-1){
 			setIndex(prev=>prev+1);

@@ -73,6 +73,8 @@ p, h1, h2, h3, h4, h5, h6 {
   --search-bar-border: #AAAAAA;
   --text-color-secondary: #AAAAAA;
   --text-color-tertiary: #000;
+  --text-color-placeholder: #4d4d4d;
+  --text-color-input-active: #081b33;
   --country-card-blue-background: #98d8d5;
   --country-card-blue-other:  	#58babf;
   --country-card-purple-background: #c4baff ;

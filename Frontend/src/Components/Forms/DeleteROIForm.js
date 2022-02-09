@@ -14,28 +14,33 @@ function DeleteROIForm(){
 	const [originalCountryArr, setOriginalCountryArr]= useState([]);
 	const [countryArr, setCountryArr] = useState([]);
 
-	const [prevButton, setPrevButton] = useState();
+	const [prevButton, setPrevButton] = useState('');
 
 	const containerRef = useRef();
 
+	//When delete button has been pressed, we send a request to the API to delete the given record.
 	function onDelete(e,id){
 		e.preventDefault();
 		axios.delete(`roi/${id}`);
 	}
 
+	//This delete form has the added functionality of needing to not only select a country but also the individual ROI
+	//so when a country has been clicked we get all of the related ROI records and set them to a state array that will
+	//then be displayed in the form. The rest of the functionality is handling the active/inactive state of the buttons.
+	//When it's active the color is darker and clearly selected, when you switch to a different value that previous button
+	//will be changed.
 	function toggleROIList(e, name){
 		
 		if(e.currentTarget.className === 'Delete-ROI-Selector-Button'){
 			setShowROIList(true);
 			e.currentTarget.className = 'Delete-ROI-Selector-Button-Active';
 			getAllCountryROI(name).then(res=>{
-				setSelectedCountryROI(res.data);
-				
+				setSelectedCountryROI(res.data);		
 			})
 			if(prevButton !== null || typeof prevButton !== 'undefined'){
 				var localArr = containerRef.current.childNodes;
 				for(let i=0; i <localArr.length; i++){
-					if(localArr[i].id === prevButton){
+					if(i!== 0 && localArr[i].id === prevButton){
 						localArr[i].className = 'Delete-ROI-Selector-Button';
 					}
 				}
@@ -45,36 +50,35 @@ function DeleteROIForm(){
 			setPrevButton(e.currentTarget.id);
 		}
 		else{
-			e.currentTarget.className = 'Delete-ROI-Selector-Button';
+			e.currentTarget.className = 'Delete-ROI-Selector-Button-Active';
 			setSelectedCountryROI([]);
 			setShowROIList(false);
 		}
 	}
 
-
-	
-	
-
+	//After a country has been selected, you can click the back button to the go to th country list. We then hide the ROI list
+	//clear it and any search value in the search box
 	function handleBackButton(){
 		setShowROIList(false);
 		setSelectedCountryROI([]);
 		setSearchValue('');
 	}
 
-	
+	//This runs the API helper function that retrieves all the country data.
 	useEffect(()=>{
 		if(initLoad){
 			getData().then(res=>{
 				setOriginalCountryArr(res.data);
 				setCountryArr(res.data);
-	
 			})
 			
-			setInitLoad(false);	
-			
+			setInitLoad(false);		
 		}
 	},[]);
 
+	//If ROI list is not open, we filter the list of countries by what has been typed inside the search box on the form
+	//if the search value is zero we simply copy the original country array we recieved from the API. If the ROI list is open
+	//we do the same but on the ROI data not the country data.
 	useEffect(()=>{
 		
 		if(!initLoad && !showROIList){
