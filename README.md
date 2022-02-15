@@ -17,7 +17,7 @@ User Features:
 - Favouriting system to allow up to 2 countries to be saved so they display on your next visit.
 
 Admin Features:
--Secure login, with validation so only allowed users can accesss the area.
--User will be remembered for an hour so they don't have to keep relogging in again and again.
--Protected, CRUD operations on multiple databases all from a simple, intituitive form menu. Allowing for workflow to be simplified.
+- Secure login, with validation so only allowed users can accesss the area.
+- User will be remembered for an hour so they don't have to keep relogging in again and again.
+- Protected, CRUD operations on multiple databases all from a simple, intituitive form menu. Allowing for workflow to be simplified.
 ## **GIFs**
